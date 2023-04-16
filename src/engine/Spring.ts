@@ -1,5 +1,5 @@
-import Vector from "../math/Vector.ts"
-import Particle from "./Particle.ts"
+import Vector from "../math/Vector"
+import Particle from "./Particle"
 
 export default class Spring {
     private _delta: Vector

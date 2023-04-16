@@ -1,5 +1,5 @@
-import Integrator from "./Integrator.ts"
-import Vector from "../../math/Vector.ts"
+import Integrator from "./Integrator"
+import Vector from "../../math/Vector"
 
 export default class ImprovedEuler extends Integrator {
     // x += (v * dt) + (a * 0.5 * dt * dt)

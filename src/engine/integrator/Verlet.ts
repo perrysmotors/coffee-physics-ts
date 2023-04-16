@@ -1,5 +1,5 @@
-import Integrator from "./Integrator.ts"
-import Vector from "../../math/Vector.ts"
+import Integrator from "./Integrator"
+import Vector from "../../math/Vector"
 
 export default class Verlet extends Integrator {
     // v = x - ox

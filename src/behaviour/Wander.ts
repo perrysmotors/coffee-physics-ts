@@ -1,8 +1,7 @@
 // Simulate an organic, meandering motion often seen in natural systems
 
-import Behaviour from "./Behaviour.ts"
-import Vector from "../math/Vector.ts"
-import Particle from "../engine/Particle.ts"
+import Behaviour from "./Behaviour"
+import Particle from "../engine/Particle"
 
 export default class Wander extends Behaviour {
     public jitter: number

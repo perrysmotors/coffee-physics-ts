@@ -1,5 +1,5 @@
-import Behaviour from "./Behaviour.ts"
-import Vector from "../math/Vector.ts"
+import Behaviour from "./Behaviour"
+import Vector from "../math/Vector"
 
 export default class Attraction extends Behaviour {
     private _delta: Vector

@@ -1,8 +1,9 @@
 /** Physics Engine */
 
-import Euler from "./integrator/Euler.ts"
-import Particle from "./Particle.ts"
-import Spring from "./Spring.ts"
+import Euler from "./integrator/Euler"
+import Behaviour from "../behaviour/Behaviour"
+import Particle from "./Particle"
+import Spring from "./Spring"
 
 export default class Physics {
     // Properties
@@ -11,9 +12,9 @@ export default class Physics {
     private _clock: number | null = null
     private _buffer = 0.0
     private _maxSteps = 4
-    public particles: Particle[] = []
-    private springs: Spring[] = []
-    public behaviours = []
+    public particles: Particle[] | null = []
+    private springs: Spring[] | null = []
+    public behaviours: Behaviour[] = []
     public timestep = 1.0 / 60
     public viscosity = 0.005
     public integrator
@@ -28,7 +29,7 @@ export default class Physics {
         const drag = 1.0 - this.viscosity
 
         // Update particles
-        this.particles.forEach((particle, index) => {
+        this.particles?.forEach((particle, index) => {
             // apply global behaviours
             for (const behaviour of this.behaviours) {
                 behaviour.apply(particle, dt, index)
@@ -40,9 +41,9 @@ export default class Physics {
         this.integrator.integrate(this.particles, dt, drag)
 
         // Compute all springs
-        for (const spring of this.springs) {
-            spring.apply()
-        }
+        this.springs?.forEach((spring) => {
+            spring.apply();
+        })
     }
 
     step(): void {
