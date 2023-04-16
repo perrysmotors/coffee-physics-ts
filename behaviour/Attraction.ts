@@ -28,7 +28,7 @@ export default class Attraction extends Behaviour {
 
     apply(p: any, dt: number, index: number): void {
         // Call the superclass apply method.
-        super.apply(p, dt, index)
+        // super.apply(p, dt, index)
 
         // Vector pointing from particle to target.
         this._delta.copy(this.target).sub(p.pos)
