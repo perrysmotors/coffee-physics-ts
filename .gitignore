@@ -5,3 +5,6 @@ npm-debug.log
 
 # mac
 .DS_Store
+
+# build artifacts
+dist
