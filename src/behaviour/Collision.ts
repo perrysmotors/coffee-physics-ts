@@ -31,10 +31,10 @@ export default class Collision extends Behaviour {
         this._delta = new Vector()
     }
 
-    apply(p: Particle, dt: number, index: number): void {
+    override apply(p: Particle, _dt: number, index: number): void {
         for (let i = index; i < this.pool.length; i++) {
             const o = this.pool[i]
-            if (o === p) continue
+            if (!o || o === p) continue
 
             // Delta between particles positions.
             this._delta.copy(o.pos).sub(p.pos)

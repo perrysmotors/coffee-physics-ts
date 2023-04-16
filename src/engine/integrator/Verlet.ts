@@ -1,11 +1,12 @@
 import Integrator from "./Integrator"
+import Particle from "../Particle"
 import Vector from "../../math/Vector"
 
 export default class Verlet extends Integrator {
     // v = x - ox
     // x = x + (v + a * dt * dt)
 
-    integrate(particles, dt: number, drag?: number): void {
+    override integrate(particles: Particle[], dt: number, drag?: number): void {
         const pos = new Vector()
 
         const dtSq = dt * dt

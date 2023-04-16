@@ -1,10 +1,11 @@
 import Integrator from "./Integrator"
+import Particle from "../Particle"
 import Vector from "../../math/Vector"
 
 export default class ImprovedEuler extends Integrator {
     // x += (v * dt) + (a * 0.5 * dt * dt)
     // v += a * dt
-    integrate(particles, dt: number, drag?: number): void {
+    override integrate(particles: Particle[], dt: number, drag?: number): void {
         const acc = new Vector()
         const vel = new Vector()
         const dtSq = dt * dt

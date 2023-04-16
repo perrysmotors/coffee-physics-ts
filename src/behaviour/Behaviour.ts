@@ -9,7 +9,7 @@ export default class Behaviour {
         this.interval = 1
     }
 
-    apply(p: any, dt: number, index: number) {
+    apply(p: any, _dt: number, _index: number) {
         // Store some data in each particle.
         const behaviour = (p[`__behaviour${this.GUID}`] ??= { counter: 0 })
         behaviour.counter++

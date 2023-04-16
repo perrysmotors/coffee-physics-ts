@@ -14,7 +14,7 @@ export default class EdgeWrap extends Behaviour {
         this.max = max
     }
 
-    apply(p: Particle, dt: number, index: number) {
+    override apply(p: Particle, _dt: number, _index: number) {
         // super.apply(p, dt, index)
 
         if (p.pos.x + p.radius < this.min.x) {

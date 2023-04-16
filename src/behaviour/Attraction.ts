@@ -1,9 +1,10 @@
 import Behaviour from "./Behaviour"
+import Particle from "../engine/Particle"
 import Vector from "../math/Vector"
 
 export default class Attraction extends Behaviour {
     private _delta: Vector
-    private _radius: number
+    public radius: number
     private _radiusSq: number
     public strength: number
     public target: Vector
@@ -16,17 +17,18 @@ export default class Attraction extends Behaviour {
         super()
         this.target = target
         this._delta = new Vector()
-        this.setRadius(radius)
+        this.radius = radius
+        this._radiusSq = radius * radius
         this.strength = strength
     }
 
     // Sets the effective radius of the behaviour.
     setRadius(radius: number): void {
-        this._radius = radius
+        this.radius = radius
         this._radiusSq = radius * radius
     }
 
-    apply(p: any, dt: number, index: number): void {
+    override apply(p: Particle, _dt: number, _index: number): void {
         // Call the superclass apply method.
         // super.apply(p, dt, index)
 

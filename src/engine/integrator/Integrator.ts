@@ -1,5 +1,7 @@
+import Particle from "../Particle"
+
 export default class Integrator {
-    integrate(particles, dt: number): void {
+    integrate(_particles: Particle[], _dt: number, _drag?: number): void {
         // Override.
     }
 }

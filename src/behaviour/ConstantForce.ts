@@ -10,7 +10,7 @@ export default class ConstantForce extends Behaviour {
         this.force = force
     }
 
-    apply(p: Particle, dt: number, index: number) {
+    override apply(p: Particle, _dt: number, _index: number) {
         // super.apply(p, dt, index)
 
         p.acc.add(this.force)

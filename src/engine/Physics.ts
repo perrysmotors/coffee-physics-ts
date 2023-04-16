@@ -1,5 +1,6 @@
 /** Physics Engine */
 
+import Integrator from "./integrator/Integrator"
 import Euler from "./integrator/Euler"
 import Behaviour from "../behaviour/Behaviour"
 import Particle from "./Particle"
@@ -7,8 +8,8 @@ import Spring from "./Spring"
 
 export default class Physics {
     // Properties
-    private _time = 0.0
-    private _step = 0.0
+    // private _time = 0.0
+    // private _step = 0.0
     private _clock: number | null = null
     private _buffer = 0.0
     private _maxSteps = 4
@@ -17,7 +18,7 @@ export default class Physics {
     public behaviours: Behaviour[] = []
     public timestep = 1.0 / 60
     public viscosity = 0.005
-    public integrator
+    public integrator: Integrator | null
 
     constructor(integrator = new Euler()) {
         this.integrator = integrator
@@ -38,7 +39,7 @@ export default class Physics {
         })
 
         // Integrate motion
-        this.integrator.integrate(this.particles, dt, drag)
+        this.integrator && this.particles && this.integrator.integrate(this.particles, dt, drag)
 
         // Compute all springs
         this.springs?.forEach((spring) => {
@@ -80,11 +81,11 @@ export default class Physics {
             this._buffer -= this.timestep
 
             // Increment running time.
-            this._time += this.timestep
+            // this._time += this.timestep
         }
 
         // Store step time for debugging.
-        this._step = Date.now() - time
+        // this._step = Date.now() - time
     }
 
     destroy(): void {

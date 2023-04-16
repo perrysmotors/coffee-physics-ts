@@ -21,7 +21,7 @@ export default class Wander extends Behaviour {
         this.theta = Math.random() * Math.PI * 2
     }
 
-    apply(p: Particle, dt: number, index: number) {
+    override apply(p: Particle, _dt: number, _index: number) {
         // super.apply(p, dt, index)
 
         this.theta += (Math.random() - 0.5) * this.jitter * Math.PI * 2
