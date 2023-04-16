@@ -9,7 +9,7 @@ export default class Gravity extends Behaviour {
     constructor(scale: number = 1000) {
         super()
         this.scale = scale
-        this.force = new Vector()
+        this.force = new Vector(0, this.scale)
 
         window.addEventListener("devicemotion", (event: DeviceMotionEvent) => {
             const accX = event.accelerationIncludingGravity?.x ?? 0
