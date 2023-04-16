@@ -1,0 +1,27 @@
+import Behaviour from "./Behaviour.ts"
+import Vector from "../math/Vector.ts"
+import Particle from "../engine/Particle.ts"
+
+export default class Gravity extends Behaviour {
+    private force: Vector
+    public scale: number
+
+    constructor(scale: number = 1000) {
+        super()
+        this.scale = scale
+        this.force = new Vector()
+
+        window.addEventListener("devicemotion", (event: DeviceMotionEvent) => {
+            const accX = event.accelerationIncludingGravity?.x ?? 0
+            const accY = event.accelerationIncludingGravity?.y ?? 9.8
+            this.force.x = (accX * this.scale) / 9.8
+            this.force.y = -(accY * this.scale) / 9.8
+        })
+    }
+
+    apply(p: Particle, dt: number, index: number) {
+        // super.apply(p, dt, index)
+
+        p.acc.add(this.force)
+    }
+}
