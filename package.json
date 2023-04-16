@@ -2,14 +2,29 @@
   "name": "coffee-physics-ts",
   "version": "1.0.0",
   "description": "A simple, lightweight physics engine ported from CoffeeScript to TypeScript",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "physics",
+    "physics engine",
+    "rigid body physics",
+    "particles",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Giles Perry",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
   "devDependencies": {
     "typescript": "^5.0.4"
   }
