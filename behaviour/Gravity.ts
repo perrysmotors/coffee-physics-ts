@@ -15,7 +15,7 @@ export default class Gravity extends Behaviour {
             const accX = event.accelerationIncludingGravity?.x ?? 0
             const accY = event.accelerationIncludingGravity?.y ?? 9.8
             this.force.x = (accX * this.scale) / 9.8
-            this.force.y = -(accY * this.scale) / 9.8
+            this.force.y = (accY * this.scale) / 9.8
         })
     }
 
