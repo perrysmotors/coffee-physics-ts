@@ -11,12 +11,14 @@ export default class Gravity extends Behaviour {
         this.scale = scale
         this.force = new Vector(0, this.scale)
 
-        window.addEventListener("devicemotion", (event: DeviceMotionEvent) => {
-            const accX = event.accelerationIncludingGravity?.x ?? 0
-            const accY = event.accelerationIncludingGravity?.y ?? 9.8
-            this.force.x = (accX * this.scale) / 9.8
-            this.force.y = -(accY * this.scale) / 9.8
-        })
+        if (typeof window !== "undefined") {
+            window.addEventListener("devicemotion", (event: DeviceMotionEvent) => {
+                const accX = event.accelerationIncludingGravity?.x ?? 0
+                const accY = event.accelerationIncludingGravity?.y ?? 9.8
+                this.force.x = (accX * this.scale) / 9.8
+                this.force.y = -(accY * this.scale) / 9.8
+            })
+        }
     }
 
     override apply(p: Particle, _dt: number, _index: number) {
