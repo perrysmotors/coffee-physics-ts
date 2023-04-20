@@ -94,3 +94,9 @@ animationFrameId = requestAnimationFrame(updatePhysics)
 ```
 cancelAnimationFrame(animationFrameId)
 ```
+
+## Coffee Physics doesn't handle rendering
+
+Coffee Physics TS is just a physics engine. The only job it does is to calculate the position of particles in the simulation. You need to use it together with a system for drawing the particles in the browser. 
+
+[Check out this demo](https://codesandbox.io/s/coffee-physics-ts-n7d65f) that uses React and Framer Motion.
