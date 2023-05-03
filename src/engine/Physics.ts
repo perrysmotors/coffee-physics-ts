@@ -14,7 +14,7 @@ export default class Physics {
     private _buffer = 0.0
     private _maxSteps = 4
     public particles: Particle[] | null = []
-    private springs: Spring[] | null = []
+    public springs: Spring[] | null = []
     public behaviours: Behaviour[] = []
     public timestep = 1.0 / 60
     public viscosity = 0.005
