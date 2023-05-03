@@ -2,7 +2,7 @@ import Vector from "../math/Vector"
 
 export default class Particle {
     static GUID = 0
-    public id: string
+    readonly id: string
     public mass!: number
     public massInv!: number
     public radius!: number
