@@ -18,13 +18,13 @@ export default class Particle {
         acc: Vector
     }
 
-    constructor(mass = 1.0) {
+    constructor(mass = 1, radius = 1) {
         // Set a unique id.
         this.id = "p" + Particle.GUID++
         // Set initial mass.
         this.setMass(mass)
         // Set initial radius.
-        this.setRadius(1.0)
+        this.setRadius(radius)
         // Apply forces.
         this.fixed = false
         // Behaviours to be applied.
